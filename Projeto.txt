@@ -1,0 +1,17 @@
+Lista incognitas
+matriz coeficientes
+matriz termosIndependentes
+
+function main: ler o arquivo, faz o resto;
+
+function organizarEquacoes
+
+function menorComplementar
+function cofator
+function sarrus
+function laPlace
+
+function cramer
+
+
+
