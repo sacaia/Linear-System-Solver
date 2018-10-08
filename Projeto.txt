@@ -6,12 +6,12 @@ function main: ler o arquivo, faz o resto;
 
 function organizarEquacoes
 
-function menorComplementar
-function cofator
-function sarrus
-function laPlace
+function menorComplementar @
+function cofator @
+function sarrus @
+function laPlace @
 
 function cramer
 
-
+FALTA DAR FREE AND NEW NAS MATRIZES
 
