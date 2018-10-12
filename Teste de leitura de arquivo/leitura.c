@@ -1,4 +1,4 @@
-int main()
+void main()
 {
     printf("Digite o nome do arquivo: \n");
     scanf("%s", nome_arq);
@@ -12,11 +12,6 @@ int main()
         fscanf(fil,"%i", &tamanhoDaMatriz);
 
         matriz =(float*)malloc(tamanhoDaMatriz*sizeof(float));
-        incognitas = (char*)malloc(tamanhoDaMatriz*sizeof(char));
-
-
-
 
     }
-    return 0;
 }
