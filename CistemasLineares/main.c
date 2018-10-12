@@ -1,7 +1,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int sarrus (int** matriz, int ordem);
+int menorComplementar(int** matriz, int ordem, int linha, int coluna);
+int cofator(int** matriz, int ordem, int linha, int coluna);
+int laPlace(int** matriz, int ordem);
 
+int main (int argc, char **argv) {
+
+    int det = 0;
+
+    int ordem = 5; // depende do tamanho da matriz
+
+    int** matriz;
+
+    matriz = (int**)malloc(ordem*sizeof(int*));
+
+    int i;
+    for(i=0; i < ordem; i++)
+        *(matriz + i) = (int*)malloc(ordem*sizeof(int));
+
+                ( *(*(matriz + 0) + 0) ) = 1;
+                ( *(*(matriz + 0) + 1) ) = 2;
+                ( *(*(matriz + 0) + 2) ) = 3;
+                ( *(*(matriz + 0) + 3) ) = 4;
+                ( *(*(matriz + 0) + 4) ) = 5;
+            ( *(*(matriz + 1) + 0) ) = 2;
+            ( *(*(matriz + 1) + 1) ) = 4;
+            ( *(*(matriz + 1) + 2) ) = 6;
+            ( *(*(matriz + 1) + 3) ) = 8;
+            ( *(*(matriz + 1) + 4) ) = 10;
+        ( *(*(matriz + 2) + 0) ) = 3;
+        ( *(*(matriz + 2) + 1) ) = 1;
+        ( *(*(matriz + 2) + 2) ) = 2;
+        ( *(*(matriz + 2) + 3) ) = 9;
+        ( *(*(matriz + 2) + 4) ) = 5;
+    ( *(*(matriz + 3) + 0) ) = 6;
+    ( *(*(matriz + 3) + 1) ) = 0;
+    ( *(*(matriz + 3) + 2) ) = 1;
+    ( *(*(matriz + 3) + 3) ) = 5;
+    ( *(*(matriz + 3) + 4) ) = 0;
+( *(*(matriz + 4) + 0) ) = 7;
+( *(*(matriz + 4) + 1) ) = 0;
+( *(*(matriz + 4) + 2) ) = 1;
+( *(*(matriz + 4) + 3) ) = 3;
+( *(*(matriz + 4) + 4) ) = 4;
+
+    det = sarrus(matriz, ordem);
+
+   int lPlace;
+
+   lPlace = laPlace(matriz, ordem);
+
+    printf("%d\n", lPlace);
+
+
+
+    return 0;
+}
 
 int sarrus (int** matriz, int ordem) { //only if(ordem in{1, 2, 3})
 
@@ -61,7 +117,8 @@ int menorComplementar(int** matriz, int ordem, int linha, int coluna) {
     if((ordem-1) <= 3)
         return sarrus(matrizAux, (ordem-1));
     else
-        return 0;//laPlace(matrizAux, (ordem-1));
+        return laPlace(matrizAux, (ordem-1));
+
 }
 
 int cofator(int** matriz, int ordem, int linha, int coluna) {
@@ -86,44 +143,5 @@ int laPlace(int** matriz, int ordem) { // ainda n é definitivo
     }
 
     return ret;
-}
-
-int main (int argc, char **argv) {
-
-    int det = 0;
-
-    int ordem = 3; // depende do tamanho da matriz
-
-    int** matriz;
-
-    matriz = (int**)malloc(ordem*sizeof(int*));
-
-    int i;
-    for(i=0; i < ordem; i++)
-        *(matriz + i) = (int*)malloc(ordem*sizeof(int));
-
-
-        ( *(*(matriz + 0) + 0) ) = 1;
-        ( *(*(matriz + 0) + 1) ) = 2;
-        ( *(*(matriz + 0) + 2) ) = 3;
-    ( *(*(matriz + 1) + 0) ) = 4;
-    ( *(*(matriz + 1) + 1) ) = 0;
-    ( *(*(matriz + 1) + 2) ) = 7;
-( *(*(matriz + 2) + 0) ) = 3;
-( *(*(matriz + 2) + 1) ) = 1;
-( *(*(matriz + 2) + 2) ) = 2;
-
-
-    det = sarrus(matriz, ordem);
-
-   int lPlace;
-
-   lPlace = laPlace(matriz, ordem);
-
-    printf("%d\n", lPlace);
-
-
-
-    return 0;
 }
 
