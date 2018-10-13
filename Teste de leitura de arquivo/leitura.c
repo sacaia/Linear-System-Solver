@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 int main()
 {
     printf("Digite o nome do arquivo: \n");
@@ -13,13 +15,24 @@ int main()
 
         fscanf(file,"%i", &ordem);
         char a = fgetc(file);
-        printf("%c", a);
+        printf("%c", acmd);
 
         matriz =(float**)malloc(ordem*sizeof(float*));
 
         int i;
         for(i=0; i<ordem;i++)
         	*(matriz + i) = (float*)malloc(ordem*sizeof(float));
+
+        for(;;)
+        {
+            char a = fgetc(file);
+
+            if(a == EOF)
+                break;
+            if(a == '\n')
+                continue;
+
+        }
     }
 
     return 0;
