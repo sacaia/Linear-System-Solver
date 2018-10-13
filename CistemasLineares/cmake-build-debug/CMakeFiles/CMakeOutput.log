@@ -1,16 +1,16 @@
 The system is: Windows - 10.0.17134 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.15.26726/bin/Hostx86/x86/cl.exe 
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.14.26428/bin/Hostx86/x86/cl.exe 
 Build flags: 
 Id flags:  
 
 The output was:
 0
-Microsoft (R) C/C++ Optimizing Compiler Vers∆o 19.15.26730 para x86
+Microsoft (R) C/C++ Optimizing Compiler Vers∆o 19.14.26429.4 para x86
 Copyright (C) Microsoft Corporation. Todos os direitos reservados.
 
 CMakeCCompilerId.c
-Microsoft (R) Incremental Linker Version 14.15.26730.0
+Microsoft (R) Incremental Linker Version 14.14.26429.4
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /out:CMakeCCompilerId.exe 
@@ -21,44 +21,44 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
 
-The C compiler identification is MSVC, found in "C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/3.12.2/CompilerIdC/CMakeCCompilerId.exe"
+The C compiler identification is MSVC, found in "C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/3.12.2/CompilerIdC/CMakeCCompilerId.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"nmake" "/nologo" "cmTC_160dc\fast"
-	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_160dc.dir\build.make /nologo -L                  CMakeFiles\cmTC_160dc.dir\build
-Building C object CMakeFiles/cmTC_160dc.dir/testCCompiler.c.obj
-	C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\cl.exe @C:\Users\LUCASR~1\AppData\Local\Temp\nmFD5B.tmp
+Run Build Command:"nmake" "/nologo" "cmTC_9b3a9\fast"
+	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_9b3a9.dir\build.make /nologo -L                  CMakeFiles\cmTC_9b3a9.dir\build
+Building C object CMakeFiles/cmTC_9b3a9.dir/testCCompiler.c.obj
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @C:\Users\Luciano\AppData\Local\Temp\nmB908.tmp
 testCCompiler.c
-Linking C executable cmTC_160dc.exe
-	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_160dc.dir --manifests  -- C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_160dc.dir\objects1.rsp @C:\Users\LUCASR~1\AppData\Local\Temp\nmFE56.tmp
+Linking C executable cmTC_9b3a9.exe
+	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_9b3a9.dir --manifests  -- C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_9b3a9.dir\objects1.rsp @C:\Users\Luciano\AppData\Local\Temp\nmB9C5.tmp
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"nmake" "/nologo" "cmTC_a8a3b\fast"
-	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_a8a3b.dir\build.make /nologo -L                  CMakeFiles\cmTC_a8a3b.dir\build
-Building C object CMakeFiles/cmTC_a8a3b.dir/CMakeCCompilerABI.c.obj
-	C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\cl.exe @C:\Users\LUCASR~1\AppData\Local\Temp\nm606.tmp
+Run Build Command:"nmake" "/nologo" "cmTC_948fa\fast"
+	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_948fa.dir\build.make /nologo -L                  CMakeFiles\cmTC_948fa.dir\build
+Building C object CMakeFiles/cmTC_948fa.dir/CMakeCCompilerABI.c.obj
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @C:\Users\Luciano\AppData\Local\Temp\nmC155.tmp
 CMakeCCompilerABI.c
-Linking C executable cmTC_a8a3b.exe
-	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_a8a3b.dir --manifests  -- C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_a8a3b.dir\objects1.rsp @C:\Users\LUCASR~1\AppData\Local\Temp\nm6E1.tmp
+Linking C executable cmTC_948fa.exe
+	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_948fa.dir --manifests  -- C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_948fa.dir\objects1.rsp @C:\Users\Luciano\AppData\Local\Temp\nmC202.tmp
 
 
 
 
 Detecting C [] compiler features compiled with the following output:
-Change Dir: C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"nmake" "/nologo" "cmTC_cca47\fast"
-	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_cca47.dir\build.make /nologo -L                  CMakeFiles\cmTC_cca47.dir\build
-Building C object CMakeFiles/cmTC_cca47.dir/feature_tests.c.obj
-	C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\cl.exe @C:\Users\LUCASR~1\AppData\Local\Temp\nmE33.tmp
+Run Build Command:"nmake" "/nologo" "cmTC_66e7a\fast"
+	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_66e7a.dir\build.make /nologo -L                  CMakeFiles\cmTC_66e7a.dir\build
+Building C object CMakeFiles/cmTC_66e7a.dir/feature_tests.c.obj
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @C:\Users\Luciano\AppData\Local\Temp\nmCB58.tmp
 feature_tests.c
-Linking C executable cmTC_cca47.exe
-	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_cca47.dir --manifests  -- C:\PROGRA~2\MICROS~4\2017\COMMUN~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_cca47.dir\objects1.rsp @C:\Users\LUCASR~1\AppData\Local\Temp\nmEF0.tmp
+Linking C executable cmTC_66e7a.exe
+	"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_66e7a.dir --manifests  -- C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_66e7a.dir\objects1.rsp @C:\Users\Luciano\AppData\Local\Temp\nmCC43.tmp
 
 
     Feature record: C_FEATURE:1c_function_prototypes

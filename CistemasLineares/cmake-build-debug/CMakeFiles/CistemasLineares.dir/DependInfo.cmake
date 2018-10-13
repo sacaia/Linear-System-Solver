@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/main.c" "C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CistemasLineares.dir/main.c.obj"
+  "C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/main.c" "C:/Users/Luciano/Desktop/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CistemasLineares.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "MSVC")
 
