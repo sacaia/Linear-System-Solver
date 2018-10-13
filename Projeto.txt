@@ -13,5 +13,5 @@ function laPlace @
 
 function cramer
 
-FALTA DAR FREE AND NEW NAS MATRIZES
+FALTA DAR FREE AND NEW NAS MATRIZES @ (só n sei pq q n vai free(matriz))
 

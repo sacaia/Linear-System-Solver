@@ -74,7 +74,8 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -94,7 +95,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1626" />
+          <entry key="c" value="1766" />
           <entry key="h" value="104" />
           <entry key="txt" value="27" />
         </counts>
@@ -102,9 +103,11 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="27" />
-          <entry key="ObjectiveC" value="1730" />
+          <entry key="ObjectiveC" value="1870" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.cidr.testingFrameworks.usages" />
     </session>
     <session id="-1072688682">
       <usages-collector id="statistics.lifecycle.project">
@@ -130,8 +133,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="680">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+=======
             <state relative-caret-position="1197">
               <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
             </state>
           </provider>
         </entry>
@@ -241,17 +252,31 @@
       <option name="presentableId" value="Default" />
       <updated>1538936705091</updated>
       <workItem from="1538936708666" duration="12328000" />
+<<<<<<< HEAD
+      <workItem from="1539356264669" duration="4663000" />
+=======
       <workItem from="1539443615411" duration="230000" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="16991000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25416037" />
+=======
     <option name="totallyTimeSpent" value="12558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49924356" weight="0.3295082" />
@@ -301,7 +326,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$APPLICATION_CONFIG_DIR$/idea.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+=======
     <entry file="file://$APPLICATION_CONFIG_DIR$/idea.properties" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/Sarrus.c" />
     <entry file="file://$PROJECT_DIR$/Sarrus.c" />
     <entry file="file://$PROJECT_DIR$/Sarrus.h" />
@@ -315,17 +350,32 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Lista.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="10" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="10" />
+=======
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1197">
           <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Lista.c">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="680">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+=======
         <state relative-caret-position="1530">
           <caret line="90" column="10" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="10" />
+>>>>>>> e8fe46119f84abbf41fb09c1d35419456a7978c3
         </state>
       </provider>
     </entry>

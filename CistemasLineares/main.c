@@ -46,13 +46,12 @@ int main (int argc, char **argv) {
 ( *(*(matriz + 4) + 3) ) = 3;
 ( *(*(matriz + 4) + 4) ) = 4;
 
-    det = sarrus(matriz, ordem);
 
-   int lPlace;
 
-   lPlace = laPlace(matriz, ordem);
+   det = laPlace(matriz, ordem);
 
-    printf("%d\n", lPlace);
+
+    printf("%d\n", det);
 
 
 
@@ -63,21 +62,38 @@ int sarrus (int** matriz, int ordem) { //only if(ordem in{1, 2, 3})
 
     int det = 0;
     if(ordem == 1)
+    {
         det = *(*(matriz + 0)+ 0);
+        free(matriz[0]);
+        //free(matriz);
+    }
     else
     if(ordem == 2)
+    {
         det =    (   ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 1) ) )
-                   - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) ) )
-                 );
+                     - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) ) )
+        );
+        free(matriz[0]);
+        free(matriz[1]);
+        //free(matriz);
+    }
+
     else
     if(ordem == 3)
+    {
         det = (     ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 1) )*( *(*(matriz + 2) + 2) ) )
-                  + ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 2) )*( *(*(matriz + 2) + 0) ) )
-                  + ( ( *(*(matriz + 0) + 2) )*( *(*(matriz + 1) + 0) )*( *(*(matriz + 2) + 1) ) )
-                  - ( ( *(*(matriz + 0) + 2) )*( *(*(matriz + 1) + 1) )*( *(*(matriz + 2) + 0) ) )
-                  - ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 2) )*( *(*(matriz + 2) + 1) ) )
-                  - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) )*( *(*(matriz + 2) + 2) ) )
+                    + ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 2) )*( *(*(matriz + 2) + 0) ) )
+                    + ( ( *(*(matriz + 0) + 2) )*( *(*(matriz + 1) + 0) )*( *(*(matriz + 2) + 1) ) )
+                    - ( ( *(*(matriz + 0) + 2) )*( *(*(matriz + 1) + 1) )*( *(*(matriz + 2) + 0) ) )
+                    - ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 2) )*( *(*(matriz + 2) + 1) ) )
+                    - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) )*( *(*(matriz + 2) + 2) ) )
         );
+        free(matriz[0]);
+        free(matriz[1]);
+        free(matriz[2]);
+        //free(matriz);
+    }
+
     return det;
 }
 
