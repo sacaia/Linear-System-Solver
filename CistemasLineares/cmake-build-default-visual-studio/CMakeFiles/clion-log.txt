@@ -1,0 +1,39 @@
+"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE= -G "CodeBlocks - NMake Makefiles" C:\Users\u17189\Documents\GitHub\Sistemas-Lineares\CistemasLineares
+-- The C compiler identification is MSVC 19.12.25830.2
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.12.25827/bin/Hostx86/x86/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.12.25827/bin/Hostx86/x86/cl.exe -- broken
+CMake Error at D:/JetBrains/CLion 2018.2.4/bin/cmake/win/share/cmake-3.12/Modules/CMakeTestCCompiler.cmake:52 (message):
+  The C compiler
+
+    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.12.25827/bin/Hostx86/x86/cl.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Users/u17189/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-default-visual-studio/CMakeFiles/CMakeTmp
+    
+    Run Build Command:"nmake" "/nologo" "cmTC_a8d4e\fast"
+    	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_a8d4e.dir\build.make /nologo -L                  CMakeFiles\cmTC_a8d4e.dir\build
+    Building C object CMakeFiles/cmTC_a8d4e.dir/testCCompiler.c.obj
+    	C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\cl.exe @C:\Users\u17189\AppData\Local\Temp\nm812D.tmp
+    testCCompiler.c
+    Linking C executable cmTC_a8d4e.exe
+    	"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_a8d4e.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_a8d4e.dir\objects1.rsp @C:\Users\u17189\AppData\Local\Temp\nm819C.tmp
+    RC Pass 1: command "rc /foCMakeFiles\cmTC_a8d4e.dir/manifest.res CMakeFiles\cmTC_a8d4e.dir/manifest.rc" failed (exit code 0) with the following output:
+    O sistema nâ”œÃºo pode encontrar o arquivo especificadoNMAKE : fatal error U1077: '"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe"' : cÂ¾digo de retorno '0xffffffff'
+    Stop.
+    NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe"' : cÂ¾digo de retorno '0x2'
+    Stop.
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/u17189/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-default-visual-studio/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/u17189/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-default-visual-studio/CMakeFiles/CMakeError.log".

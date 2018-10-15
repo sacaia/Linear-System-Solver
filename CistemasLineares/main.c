@@ -397,7 +397,7 @@ int laPlace(int** matriz, int ordem) { // ainda n é definitivo
     return ret;
 }
 
-void cramer (Lista lista, int** matrizPrincipal, int** matrizIndependente, int ordem) {
+void cramer (Lista lista, int** matrizPrincipal, int* matrizIndependente, int ordem) {
 
     int** matrizAux;
 
@@ -413,6 +413,15 @@ void cramer (Lista lista, int** matrizPrincipal, int** matrizIndependente, int o
         for(j=0; j<ordem; j++)
         {
             ( *(*(matrizAux + i) + j) ) = ( *(*(matrizPrincipal + i) + j) );
+        }
+
+    }
+
+    for(i=0; i < ordem; i++)
+    {
+        for(j=0; j<ordem; j++)
+        {
+            ( *(*(matrizAux + i) + j) ) = *(matrizIndependente + j);
         }
 
     }

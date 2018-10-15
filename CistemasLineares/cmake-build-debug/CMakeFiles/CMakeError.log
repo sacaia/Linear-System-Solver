@@ -1,0 +1,72 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.12.25827/bin/Hostx86/x86/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+2
+Microsoft (R) C/C++ Optimizing Compiler VersÆo 19.12.25830.2 para x86
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+CMakeCCompilerId.c
+Microsoft (R) Incremental Linker Version 14.12.25830.2
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerId.exe 
+CMakeCCompilerId.obj 
+LINK : fatal error LNK1104: não é possível abrir o arquivo 'kernel32.lib'
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/u17189/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"nmake" "/nologo" "cmTC_e9ca4\fast"
+	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_e9ca4.dir\build.make /nologo -L                  CMakeFiles\cmTC_e9ca4.dir\build
+Building C object CMakeFiles/cmTC_e9ca4.dir/testCCompiler.c.obj
+	C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\cl.exe @C:\Users\u17189\AppData\Local\Temp\nmD6BC.tmp
+testCCompiler.c
+Linking C executable cmTC_e9ca4.exe
+	"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_e9ca4.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_e9ca4.dir\objects1.rsp @C:\Users\u17189\AppData\Local\Temp\nmD73A.tmp
+RC Pass 1: command "rc /foCMakeFiles\cmTC_e9ca4.dir/manifest.res CMakeFiles\cmTC_e9ca4.dir/manifest.rc" failed (exit code 0) with the following output:
+O sistema nâ”œÃºo pode encontrar o arquivo especificadoNMAKE : fatal error U1077: '"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe"' : cÂ¾digo de retorno '0xffffffff'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe"' : cÂ¾digo de retorno '0x2'
+Stop.
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.12.25827/bin/Hostx86/x86/cl.exe 
+Build flags: /DWIN32;/D_WINDOWS;/W3
+Id flags:  
+
+The output was:
+2
+Microsoft (R) C/C++ Optimizing Compiler VersÆo 19.12.25830.2 para x86
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+CMakeCCompilerId.c
+Microsoft (R) Incremental Linker Version 14.12.25830.2
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerId.exe 
+CMakeCCompilerId.obj 
+LINK : fatal error LNK1104: não é possível abrir o arquivo 'kernel32.lib'
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/u17189/Documents/GitHub/Sistemas-Lineares/CistemasLineares/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"nmake" "/nologo" "cmTC_1fa03\fast"
+	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_1fa03.dir\build.make /nologo -L                  CMakeFiles\cmTC_1fa03.dir\build
+Building C object CMakeFiles/cmTC_1fa03.dir/testCCompiler.c.obj
+	C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\cl.exe @C:\Users\u17189\AppData\Local\Temp\nm618D.tmp
+testCCompiler.c
+Linking C executable cmTC_1fa03.exe
+	"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1fa03.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\ENTERP~1\VC\Tools\MSVC\1412~1.258\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_1fa03.dir\objects1.rsp @C:\Users\u17189\AppData\Local\Temp\nm61FB.tmp
+RC Pass 1: command "rc /foCMakeFiles\cmTC_1fa03.dir/manifest.res CMakeFiles\cmTC_1fa03.dir/manifest.rc" failed (exit code 0) with the following output:
+O sistema nâ”œÃºo pode encontrar o arquivo especificadoNMAKE : fatal error U1077: '"D:\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe"' : cÂ¾digo de retorno '0xffffffff'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\nmake.exe"' : cÂ¾digo de retorno '0x2'
+Stop.
+
+
