@@ -1,93 +1,206 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <stdio.H>
+#define MAX_LENGTH 100
 
-int main()
-{
+typedef
+    enum
+    {
+        Coef,
+        Incog,
+        IndTerm,
+        Sinal
+    }Estado;
+
+typedef
+    enum
+    {
+        false,
+        true
+    }boolean;
+
+void addChar(char c, char *s) {
+    int len = strlen(s);
+    *(s + len) = c;
+    *(s + len + 1) = '\0';
+}
+
+char* criarString() {
+    char *s = malloc(MAX_LENGTH);
+    *s = '\0';
+    return s;
+}
+
+int main() {
     char* nome_arq;
 
     printf("Digite o nome do arquivo: \n");
     scanf("%s", &nome_arq);
     FILE* file;
-    file = fopen("C:\\Users\\Luciano\\Desktop\\a.txt", "r");
+    file = fopen(nome_arq, "r");
 
     if(file == NULL)
         printf("Deu ruim!");
     else
     {
         float** matriz;
+        float*  termosInd;
         int ordem;
 
         fscanf(file,"%i", &ordem);
-        printf("%i", ordem);
 
+        termosInd = (float*)malloc(ordem* sizeof(float));
         matriz =(float**)malloc(ordem*sizeof(float*));
 
         int i;
         for(i=0; i<ordem;i++)
             *(matriz + i) = (float*)malloc(ordem*sizeof(float));
 
-        int j;
-        int k;
-        for(j=0;j<ordem;ordem++)
-        {
-            for(k=0;k<ordem;k++)
-            {
-                float coef;
-                fscanf(file, "%f", &coef);
-                *(*(matriz + j)+k) = coef;
+        Estado estado = Coef;
+        boolean sinal = true;
+        char charAtual;
+        int Rctrl = 0;
+        int Cctrl = 0;
+        char* elementoAtual = criarString();
+        fgetc(file);
+        for(;;) {
+            charAtual = fgetc(file);
 
-                if(j==0)
-                {
-                    char incognita;
-                    fscanf(file, "%c", &incognita);
-                    //lista.insira(incognita);
-                }
+            if(charAtual == EOF)
+            {
+                if(sinal)
+                    *(termosInd+Rctrl) = atof(elementoAtual);
+                else
+                    *(termosInd+Rctrl) = -atof(elementoAtual);
+                free(elementoAtual);
+
+                break;
             }
 
-            while(fgetc(file)!='='); //pega tudo até o igual
+            if(charAtual == ' ' || charAtual == '*')
+                continue;
 
-            float termInd;
-            fscanf(file, "%f", &termInd);
-            //coloca na matriz de termos independentes na posição j
+            if (isdigit(charAtual))
+            {
+                addChar(charAtual, elementoAtual);
+                estado = Coef;
+                continue;
+            }
+
+            if (isalpha(charAtual)) {
+                if (estado == Coef) {
+                    //printf("Chegou no coefinho?: %s", elementoAtual);
+                    if(sinal)
+                        *(*(matriz + Rctrl) + Cctrl) = atof(elementoAtual);
+                    else
+                        *(*(matriz + Rctrl) + Cctrl) = -atof(elementoAtual);
+
+                    //printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                    Cctrl++;
+                }
+
+                if(estado == Sinal || estado == IndTerm)
+                {
+                    if(sinal)
+                        *(*(matriz + Rctrl) + Cctrl)  = 1.0;
+                    else
+                        *(*(matriz + Rctrl) + Cctrl) = -1.0;
+
+                   // printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                    Cctrl++;
+                }
+
+                //printf("Chegou no finalzinho?");
+                estado =  Incog;
+                addChar(charAtual, elementoAtual);
+
+                continue;
+            }
+
+            if (charAtual == '+')
+            {
+                if(estado == Incog)
+                {
+                    //lista.insira(incog);
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+                if(estado == Sinal)
+                {
+                    printf("\n Erro de sintaxe!");
+                    exit(666);
+                }
+
+                sinal = true;
+                estado = Sinal;
+
+                continue;
+            }
+
+            if (charAtual == '-')
+            {
+                if(estado == Incog)
+                {
+                    //lista.insira(incog);
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+                if(estado == Sinal)
+                {
+                    printf("\n Erro de sintaxe!");
+                    exit(666);
+                }
+
+                sinal = false;
+                estado = Sinal;
+
+                continue;
+            }
+
+            if(charAtual == '=')
+            {
+                if(estado == Incog)
+                {
+                    //lista.insira(incog);
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+
+                estado = IndTerm;
+
+                continue;
+            }
+
+            if (charAtual == '\n') {
+                if(sinal)
+                    *(termosInd+Rctrl) = atof(elementoAtual);
+                else
+                    *(termosInd+Rctrl) = -atof(elementoAtual);
+                free(elementoAtual);
+                elementoAtual = criarString();
+                Rctrl++;
+                Cctrl = 0;
+                estado = IndTerm;
+                continue;
+            }
         }
+
+        /*int j;
+        for(i = 0; i < ordem; i++)
+        {
+            for (j = 0; j < ordem; j++) {
+                printf("%f", *(*(matriz +i)+j));
+            }
+            printf("\n");
+        }
+
+        printf("\n");
+        for(i = 0; i<ordem; i++)
+            printf("%f ", *(termosInd+i));*/
     }
-
-    return 0;
 }
-
-
-
-
-
-/*char a = fgetc(file);
-char* elementoAtual =  "";
-
-if(a == EOF)
-    break;
-
-if(a == '\n')
-    continue;
-
-if(isdigit(a))
-{
-    if(coeficiente == 0)
-    {
-        //lista.inserir(elementoAtual);
-        elementoAtual = "";
-        coeficiente = 1;
-    }
-    elementoAtual += a;
-}
-if(isalpha(a))
-{
-    if(coeficiente == 1)
-    {
-        *(*(matriz + Rctrl)+ Cctrl) = atoi(elementoAtual);
-    }
-
-}
-if(a == "+" || a == "-")
-{
-
-}*/
