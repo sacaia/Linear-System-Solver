@@ -1,53 +1,272 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#define MAX_LENGTH 100
 
-typedef
-struct No
+typedef struct sNo
 {
     void* info;
-    struct No* prox;
-}
-        No;
+    struct sNo* prox;
+} No;
+typedef struct
+{
+    No* prim;
+} Lista;
 
 typedef
-struct Lista
-{
-    No*  inicio;
-    //int  (*compareTo) (void*,void*);
-    //void (*print)     (void*);
-} Lista;
-//É pra usar esse insira no  codigo
-void insira(Lista * lis, void* inf)
-{
-    if (lis->inicio==NULL)
+    enum
     {
-        lis->inicio       = (No*)malloc(sizeof(No));
-        lis->inicio->info = inf;
+        Coef,
+        Incog,
+        IndTerm,
+        Sinal
+    }Estado;
+
+typedef
+    enum
+    {
+        false,
+        true
+    }boolean;
+
+void addChar(char c, char *s) {
+    int len = strlen(s);
+    *(s + len) = c;
+    *(s + len + 1) = '\0';
+}
+
+char* criarString() {
+    char *s = malloc(MAX_LENGTH);
+    *s = '\0';
+    return s;
+}
+
+void inserirComeco(Lista* lista, void* info)
+{
+    No* novoPrim = (No*)malloc(sizeof(No));
+    (*novoPrim).info = info;
+    (*novoPrim).prox = (*lista).prim;
+
+    (*lista).prim = novoPrim;
+}
+
+//É pra usar esse insira no  codigo
+void insira(Lista* lista, void* info)
+{
+    if ((*lista).prim == NULL)
+    {
+        inserirComeco(lista, info);
+        return;
     }
 
-    No* atual = lis->inicio;
-    while(atual->prox != NULL)
-        atual = atual->prox;
+    No* atual = (*lista).prim;
+    while ((*atual).prox != NULL)
+        atual = (*atual).prox;
 
-    No* novo    = (No*)malloc(sizeof(No));
-    novo ->info = inf;
-    atual->prox = novo;
+    No* novo = (No*)malloc(sizeof(No));
+    (*novo).info = info;
+    (*novo).prox = NULL;
+
+    (*atual).prox = novo;
 }
 //---------------------------------------------
 
-double sarrus (double** matriz, int ordem);
-double menorComplementar(double** matriz, int ordem, int linha, int coluna);
-double cofator(double** matriz, int ordem, int linha, int coluna);
-double laPlace(double** matriz, int ordem);
-double* cramer (double** matrizPrincipal, double* matrizIndependente, int ordem);
+float sarrus (float** matriz, int ordem);
+float menorComplementar(float** matriz, int ordem, int linha, int coluna);
+float cofator(float** matriz, int ordem, int linha, int coluna);
+float laPlace(float** matriz, int ordem);
+float* cramer (float** matrizPrincipal, float* matrizIndependente, int ordem);
 
 
 int main (int argc, char **argv) {
+/*Le o arquivo*/
+	char* nome_arq;
 
-double det;
+    printf("Digite o nome do arquivo: \n");
 
+    scanf("%s", &nome_arq);
+    FILE* file;
+    file = fopen("c:\\Temp\\a.txt.txt"/*&nome_arq*/, "r");
+
+    if(file == NULL)
+        printf("Deu ruim!");
+    else
+    {
+        float** matriz;
+        float*  termosInd;
+        int ordem;
+        //;Lista* lis = (Lista*)malloc(sizeof(Lista));
+
+        fscanf(file,"%i", &ordem);
+
+        char** incogs= (char**)malloc(ordem*sizeof(char*));
+        int z;
+        for(z = 0; z<ordem; z++)
+        {
+            *(incogs +z) = (char*)malloc(20*sizeof(char));
+            strcpy(*(incogs +z), "                   \0");
+        }
+
+
+        termosInd = (float*)malloc(ordem* sizeof(float));
+        matriz =(float**)malloc(ordem*sizeof(float*));
+
+        int i;
+        for(i=0; i<ordem;i++)
+            *(matriz + i) = (float*)malloc(ordem*sizeof(float));
+
+        Estado estado = Coef;
+        boolean sinal = true;
+        char charAtual;
+        int Rctrl = 0;
+        int Cctrl = 0;
+        int qtasIncog = 0;
+        char* elementoAtual = criarString();
+        fgetc(file);
+        for(;;) {
+            charAtual = fgetc(file);
+
+            if(charAtual == EOF)
+            {
+                if(sinal)
+                    *(termosInd+Rctrl) = atof(elementoAtual);
+                else
+                    *(termosInd+Rctrl) = -atof(elementoAtual);
+                free(elementoAtual);
+
+                break;
+            }
+
+            if(charAtual == ' ' || charAtual == '*')
+                continue;
+
+            if (isdigit(charAtual) || charAtual=='.')
+            {
+                addChar(charAtual, elementoAtual);
+                estado = Coef;
+                continue;
+            }
+
+            if (isalpha(charAtual)) {
+                if (estado == Coef) {
+                    if(sinal)
+                        *(*(matriz + Rctrl) + Cctrl) = atof(elementoAtual);
+                    else
+                        *(*(matriz + Rctrl) + Cctrl) = -atof(elementoAtual);
+
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                    Cctrl++;
+
+                    //printf("Saas: %s", elementoAtual);
+                }
+
+                if(estado == Sinal || estado == IndTerm)
+                {
+                    if(sinal)
+                        *(*(matriz + Rctrl) + Cctrl)  = 1.0;
+                    else
+                        *(*(matriz + Rctrl) + Cctrl) = -1.0;
+
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                    Cctrl++;
+                }
+
+                estado =  Incog;
+                addChar(charAtual, elementoAtual);
+
+                continue;
+            }
+
+            if (charAtual == '+')
+            {
+                if(estado == Incog)
+                {
+                    //insira(lis, elementoAtual);
+                    if(qtasIncog <= ordem)
+                    {
+                         *(incogs + qtasIncog) = elementoAtual;
+                         qtasIncog++;
+                    }
+
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+                if(estado == Sinal)
+                {
+                    printf("\n Erro de sintaxe!");
+                    exit(666);
+                }
+
+                sinal = true;
+                estado = Sinal;
+
+                continue;
+            }
+
+            if (charAtual == '-')
+            {
+                if(estado == Incog)
+                {
+                	if(qtasIncog <= ordem)
+                    {
+                    	//insira(lis, elementoAtual);
+                    	*(incogs + qtasIncog) = elementoAtual;
+                    	qtasIncog++;
+                    }
+
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+                if(estado == Sinal)
+                {
+                    printf("\n Erro de sintaxe!");
+                    exit(666);
+                }
+
+                sinal = false;
+                estado = Sinal;
+
+                continue;
+            }
+
+            if(charAtual == '=')
+            {
+                if(estado == Incog)
+                {
+                    if(qtasIncog <= ordem)
+                    {
+                    	//insira(lis, elementoAtual);
+                    	*(incogs + qtasIncog) = elementoAtual;
+                    	qtasIncog++;
+                    }
+                    free(elementoAtual);
+                    elementoAtual = criarString();
+                }
+
+                estado = IndTerm;
+
+                continue;
+            }
+
+            if (charAtual == '\n') {
+                if(sinal)
+                    *(termosInd+Rctrl) = atof(elementoAtual);
+                else
+                    *(termosInd+Rctrl) = -atof(elementoAtual);
+                free(elementoAtual);
+                elementoAtual = criarString();
+                Rctrl++;
+                Cctrl = 0;
+                estado = IndTerm;
+                continue;
+            }
+        }
+/*-------------*/
+/*
     int ordem = 5; // depende do tamanho da matriz
-
     double** matriz;
 
     matriz = (double**)malloc(ordem*sizeof(double*));
@@ -89,38 +308,55 @@ double det;
     *(matrizIndependente + 2) = 2;
     *(matrizIndependente + 3) = 3;
     *(matrizIndependente + 4) = 4;
+*/
+    float det;
 
-    Lista lista;
+    float** matrizAux;
 
-   det = laPlace(matriz, ordem);
+    matrizAux = (float**)malloc(ordem*sizeof(float*));
 
-    double* determinantes;
 
-    determinantes = cramer(lista, matriz, matrizIndependente, ordem);
+    for(i=0; i < ordem; i++)
+        *(matrizAux + i) = (float*)malloc(ordem*sizeof(float));
+
+    int j;
+    for(i=0;i<ordem;i++)
+    {
+        for(j=0;j<ordem;j++)
+        {
+            ( *(*(matrizAux + i) + j) ) = ( *(*(matriz + i) + j) );
+        }
+    }
+
+    if(ordem < 4)
+        det = sarrus(matrizAux, ordem);
+    else
+        det = laPlace(matrizAux, ordem);
+
+    float* determinantes;
+
+    determinantes = cramer(matriz, termosInd, ordem);
 
     double result;
-    double a;
     for(i = 0; i < ordem; i++)
     {
-        a = (double)*(determinantes + i);
-        result = (a/(double)det);
-        printf("%d\n", *(determinantes + i));
-        printf("%d\n", det);
-        printf("%d\n", result);
+        result = ((double)(*(determinantes + i))/(double)det);
+        printf("%s: %.2f\n", *(incogs + i),result);
 
     }
 
 
     return 0;
 }
+}
 
-double sarrus (double** matriz, int ordem) { //only if(ordem in{1, 2, 3})
+float sarrus (float** matriz, int ordem) { //only if(ordem in{1, 2, 3})
 
-    double det = 0;
+    float det = 0;
     if(ordem == 1)
     {
         det = *(*(matriz + 0)+ 0);
-        free(matriz[0]);
+        //free(matriz[0]);
         //free(matriz);
     }
     else
@@ -129,8 +365,8 @@ double sarrus (double** matriz, int ordem) { //only if(ordem in{1, 2, 3})
         det =    (   ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 1) ) )
                      - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) ) )
         );
-        free(matriz[0]);
-        free(matriz[1]);
+        //free(matriz[0]);
+        //free(matriz[1]);
         //free(matriz);
     }
 
@@ -144,24 +380,24 @@ double sarrus (double** matriz, int ordem) { //only if(ordem in{1, 2, 3})
                     - ( ( *(*(matriz + 0) + 0) )*( *(*(matriz + 1) + 2) )*( *(*(matriz + 2) + 1) ) )
                     - ( ( *(*(matriz + 0) + 1) )*( *(*(matriz + 1) + 0) )*( *(*(matriz + 2) + 2) ) )
         );
-        free(matriz[0]);
-        free(matriz[1]);
-        free(matriz[2]);
+        //free(matriz[0]);
+        //free(matriz[1]);
+        //free(matriz[2]);
         //free(matriz);
     }
 
     return det;
 }
 
-double menorComplementar(double** matriz, int ordem, int linha, int coluna) {
+float menorComplementar(float** matriz, int ordem, int linha, int coluna) {
 
-    double** matrizAux;
+    float** matrizAux;
 
-    matrizAux = (double**)malloc((ordem-1)*sizeof(double*));
+    matrizAux = (float**)malloc((ordem-1)*sizeof(float*));
 
     int i;
     for(i=0; i < (ordem-1); i++)
-        *(matrizAux + i) = (double*)malloc((ordem-1)*sizeof(double));
+        *(matrizAux + i) = (float*)malloc((ordem-1)*sizeof(float));
 
     int lAtual = 0;
     int cAtual = 0;
@@ -193,7 +429,7 @@ double menorComplementar(double** matriz, int ordem, int linha, int coluna) {
 
 }
 
-double cofator(double** matriz, int ordem, int linha, int coluna) {
+float cofator(float** matriz, int ordem, int linha, int coluna) {
 
     int sinal;
 
@@ -205,10 +441,10 @@ double cofator(double** matriz, int ordem, int linha, int coluna) {
     return (sinal * menorComplementar(matriz, ordem, linha, coluna) );
 }
 
-double laPlace(double** matriz, int ordem) { // ainda n é definitivo
+float laPlace(float** matriz, int ordem) { // ainda n é definitivo
 
     int i;
-    double ret;
+    float ret;
     ret = 0;
     for(i=0; i < ordem; i++)
     {
@@ -218,17 +454,17 @@ double laPlace(double** matriz, int ordem) { // ainda n é definitivo
     return ret;
 }
 
-double* cramer (double** matrizPrincipal, double* matrizIndependente, int ordem) {
+float* cramer (float** matrizPrincipal, float* matrizIndependente, int ordem) {
 
-    double* ret = (double*)malloc(ordem*sizeof(double));
+    float* ret = (float*)malloc(ordem*sizeof(float));
 
-    double** matrizAux;
+    float** matrizAux;
 
-    matrizAux = (double**)malloc(ordem*sizeof(double*));
+    matrizAux = (float**)malloc(ordem*sizeof(float*));
 
     int i;
     for(i=0; i < ordem; i++)
-        *(matrizAux + i) = (double*)malloc(ordem*sizeof(double));
+        *(matrizAux + i) = (float*)malloc(ordem*sizeof(float));
 
     int j;
     for(i =0; i < ordem; i++)
@@ -244,12 +480,15 @@ double* cramer (double** matrizPrincipal, double* matrizIndependente, int ordem)
     {
         for(j=0; j<ordem; j++)
         {
-            ( *(*(matrizAux + i) + j) ) = *(matrizIndependente + j);
+            ( *(*(matrizAux + j) + i) ) = *(matrizIndependente + j);
         }
-        *(ret + i) = laPlace(matrizAux, ordem);
+        if(ordem < 4)
+            *(ret + i) = sarrus(matrizAux, ordem);
+        else
+            *(ret + i) = laPlace(matrizAux, ordem);
         for(j=0; j<ordem; j++)
         {
-            ( *(*(matrizAux + i) + j) ) = ( *(*(matrizPrincipal + i) + j) );
+            ( *(*(matrizAux + j) + i) ) = ( *(*(matrizPrincipal + j) + i) );
         }
     }
 
