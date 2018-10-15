@@ -17,6 +17,26 @@ struct Lista
     //int  (*compareTo) (void*,void*);
     //void (*print)     (void*);
 }
+//É pra usar esse insira no  codigo
+void insira(Lista * lis, void* inf)
+{
+    if (lis->inicio==NULL)
+    {
+        lis->inicio       = (No*)malloc(sizeof(No));
+        lis->inicio->info = inf;
+    }
+
+    No* atual = lis->inicio;
+    while(atual->prox != NULL)
+        atual = atual->prox;
+
+    No* novo    = (No*)malloc(sizeof(No));
+    novo ->info = inf;
+    atual->prox = novo;
+}
+//---------------------------------------------
+
+
         Lista;
 int sarrus (int** matriz, int ordem);
 int menorComplementar(int** matriz, int ordem, int linha, int coluna);
@@ -69,6 +89,7 @@ int main (int argc, char **argv) {
         float** matriz;
         float*  termosInd;
         int ordem;
+        Lista lis;
 
         fscanf(file,"%i", &ordem);
 
@@ -149,7 +170,7 @@ int main (int argc, char **argv) {
             {
                 if(estado == Incog)
                 {
-                    //lista.insira(incog);
+                    insira(lis, incog);
                     free(elementoAtual);
                     elementoAtual = criarString();
                 }
@@ -171,7 +192,7 @@ int main (int argc, char **argv) {
                 {
                     if(qtasIncog < ordem)
                     {
-                        //lista.insira(incog);
+                        insira(lis, incog);
                         qtasIncog++
                     }
 
@@ -196,7 +217,7 @@ int main (int argc, char **argv) {
                 {
                     if(qtasIncog < ordem)
                     {
-                        //lista.insira(incog);
+                        insira(lis, incog);
                         qtasIncog++
                     }
                     free(elementoAtual);
