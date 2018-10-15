@@ -82,7 +82,7 @@ int main() {
             if(charAtual == ' ' || charAtual == '*')
                 continue;
 
-            if (isdigit(charAtual))
+            if (isdigit(charAtual) || charAtual=='.')
             {
                 addChar(charAtual, elementoAtual);
                 estado = Coef;
