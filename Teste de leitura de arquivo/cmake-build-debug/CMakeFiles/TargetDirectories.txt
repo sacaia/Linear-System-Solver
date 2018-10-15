@@ -1,0 +1,3 @@
+C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/Teste de leitura de arquivo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/Teste de leitura de arquivo/cmake-build-debug/CMakeFiles/Teste_de_leitura_de_arquivo.dir
+C:/Users/Lucas R/Documents/GitHub/Sistemas-Lineares/Teste de leitura de arquivo/cmake-build-debug/CMakeFiles/edit_cache.dir
