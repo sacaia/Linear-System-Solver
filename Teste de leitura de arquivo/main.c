@@ -36,9 +36,11 @@ int main() {
     char* nome_arq;
 
     printf("Digite o nome do arquivo: \n");
-    scanf("%s", nome_arq);
+    scanf("%s", &nome_arq);
     FILE* file;
-    file = fopen(nome_arq, "r");
+    printf("AAA!: %s", &nome_arq);
+    file = fopen(&nome_arq, "r");
+    printf("AAA!");
 
     if(file == NULL)
         printf("Deu ruim!");
@@ -48,7 +50,10 @@ int main() {
         float*  termosInd;
         int ordem;
 
+        printf("Qualquer coisa2");
         fscanf(file,"%i", &ordem);
+        printf("Qualquer coisa3");
+
 
         termosInd = (float*)malloc(ordem* sizeof(float));
         matriz =(float**)malloc(ordem*sizeof(float*));
@@ -91,13 +96,13 @@ int main() {
 
             if (isalpha(charAtual)) {
                 if (estado == Coef) {
-                    //printf("Chegou no coefinho?: %s", elementoAtual);
+                    printf("Chegou no coefinho?: %s", elementoAtual);
                     if(sinal)
                         *(*(matriz + Rctrl) + Cctrl) = atof(elementoAtual);
                     else
                         *(*(matriz + Rctrl) + Cctrl) = -atof(elementoAtual);
 
-                    //printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
+                    printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
                     free(elementoAtual);
                     elementoAtual = criarString();
                     Cctrl++;
@@ -110,13 +115,13 @@ int main() {
                     else
                         *(*(matriz + Rctrl) + Cctrl) = -1.0;
 
-                   // printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
+                    printf("\n %f",  *(*(matriz + Rctrl) + Cctrl));
                     free(elementoAtual);
                     elementoAtual = criarString();
                     Cctrl++;
                 }
 
-                //printf("Chegou no finalzinho?");
+                printf("Chegou no finalzinho?");
                 estado =  Incog;
                 addChar(charAtual, elementoAtual);
 
@@ -174,7 +179,7 @@ int main() {
                 {
                     if(qtasIncog < ordem)
                     {
-                    	//lista.insira(incog);
+                    	/*lista.insira(incog);*/
                     	qtasIncog++;
                     }
                     free(elementoAtual);
@@ -200,7 +205,7 @@ int main() {
             }
         }
 
-        /*int j;
+        int j;
         for(i = 0; i < ordem; i++)
         {
             for (j = 0; j < ordem; j++) {
@@ -211,6 +216,6 @@ int main() {
 
         printf("\n");
         for(i = 0; i<ordem; i++)
-            printf("%f ", *(termosInd+i));*/
+            printf("%f ", *(termosInd+i));
     }
 }
