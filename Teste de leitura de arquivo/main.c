@@ -65,6 +65,7 @@ int main() {
         char* elementoAtual = criarString();
         fgetc(file);
         for(;;) {
+        	int qtasIncog = 0;
             charAtual = fgetc(file);
 
             if(charAtual == EOF)
@@ -146,7 +147,12 @@ int main() {
             {
                 if(estado == Incog)
                 {
-                    //lista.insira(incog);
+                	if(qtasIncog < ordem)
+                    {
+                    	//lista.insira(incog);
+                    	qtasIncog++
+                    }
+
                     free(elementoAtual);
                     elementoAtual = criarString();
                 }
@@ -166,7 +172,11 @@ int main() {
             {
                 if(estado == Incog)
                 {
-                    //lista.insira(incog);
+                    if(qtasIncog < ordem)
+                    {
+                    	//lista.insira(incog);
+                    	qtasIncog++
+                    }
                     free(elementoAtual);
                     elementoAtual = criarString();
                 }
