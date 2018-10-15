@@ -17,6 +17,26 @@ typedef
     }
     Lista;
 
+
+//É pra usar esse insira no  codigo
+void insira(Lista * lis, void* inf)
+{
+	if (lis->inicio==NULL)
+    {
+        lis->inicio       = (No*)malloc(sizeof(No));
+        lis->inicio->info = inf;
+    }
+
+	No* atual = lis->inicio;
+	while(atual->prox != NULL)
+		atual = atual->prox;
+
+	No* novo    = (No*)malloc(sizeof(No));
+    novo ->info = inf;
+    atual->prox = novo;
+}
+//---------------------------------------------
+
 char/*boolean*/ insira (Lista* lis, void* inf)
 {
     if (lis->inicio==NULL)
