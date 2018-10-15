@@ -1,10 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef
+struct No
+{
+    char*  variavel;
+    int*      valor;
+    struct No* prox;
+}
+        No;
+
+typedef
+struct Lista
+{
+    No*  inicio;
+    //int  (*compareTo) (void*,void*);
+    //void (*print)     (void*);
+}
+        Lista;
 int sarrus (int** matriz, int ordem);
 int menorComplementar(int** matriz, int ordem, int linha, int coluna);
 int cofator(int** matriz, int ordem, int linha, int coluna);
 int laPlace(int** matriz, int ordem);
+void cramer (Lista lista, int** matrizPrincipal, int** matrizIndependente, int ordem);
 
 typedef
     enum
@@ -358,3 +376,23 @@ int laPlace(int** matriz, int ordem) { // ainda n é definitivo
     return ret;
 }
 
+void cramer (Lista lista, int** matrizPrincipal, int** matrizIndependente, int ordem) {
+
+    int** matrizAux;
+
+    matrizAux = (int**)malloc(ordem*sizeof(int*));
+
+    int i;
+    for(i=0; i < ordem; i++)
+        *(matrizAux + i) = (int*)malloc(ordem*sizeof(int));
+
+    int j;
+    for(i =0; i < ordem; i++)
+    {
+        for(j=0; j<ordem; j++)
+        {
+            ( *(*(matrizAux + i) + j) ) = ( *(*(matrizPrincipal + i) + j) );
+        }
+
+    }
+}

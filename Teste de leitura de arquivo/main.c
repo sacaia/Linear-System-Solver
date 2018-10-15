@@ -36,7 +36,7 @@ int main() {
     char* nome_arq;
 
     printf("Digite o nome do arquivo: \n");
-    scanf("%s", &nome_arq);
+    scanf("%s", nome_arq);
     FILE* file;
     file = fopen(nome_arq, "r");
 
@@ -150,7 +150,7 @@ int main() {
                 	if(qtasIncog < ordem)
                     {
                     	//lista.insira(incog);
-                    	qtasIncog++
+                    	qtasIncog++;
                     }
 
                     free(elementoAtual);
@@ -175,7 +175,7 @@ int main() {
                     if(qtasIncog < ordem)
                     {
                     	//lista.insira(incog);
-                    	qtasIncog++
+                    	qtasIncog++;
                     }
                     free(elementoAtual);
                     elementoAtual = criarString();
